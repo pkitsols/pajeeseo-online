@@ -1,0 +1,25 @@
+API SETUP GUIDE FOR PAJEESEO.ONLINE
+===================================
+
+1) Google PageSpeed Insights API Key
+- Google Cloud Console me project create karo.
+- PageSpeed Insights API enable karo.
+- API key create karo.
+- api.php me PAGESPEED_API_KEY me paste karo.
+
+2) Google Custom Search API + Search Engine ID
+- Google Programmable Search Engine create karo.
+- Search the entire web option enable karo.
+- Search Engine ID copy karo.
+- Google Cloud Console me Custom Search API enable karo.
+- API key copy karo.
+- api.php me GOOGLE_CSE_API_KEY and GOOGLE_CSE_ID fill karo.
+
+3) True Keyword Volume/CPC
+Google CSE real volume/CPC nahi deta. For real keyword volume/CPC use:
+- DataForSEO API
+- Semrush API
+- Ahrefs API
+- Google Ads Keyword Planner API
+
+Current version fake volume/CPC nahi dikhata, sirf real available signals show karta hai.
