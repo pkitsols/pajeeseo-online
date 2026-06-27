@@ -4,9 +4,9 @@
 // GOOGLE_CSE_API_KEY      required for live SERP data
 // GOOGLE_CSE_ID           required for live SERP data
 
-const PAGESPEED_API_KEY = process.env.PAGESPEED_API_KEY || '';
-const GOOGLE_CSE_API_KEY = process.env.GOOGLE_CSE_API_KEY || '';
-const GOOGLE_CSE_ID = process.env.GOOGLE_CSE_ID || '';
+const PAGESPEED_API_KEY = process.env.PAGESPEED_API_KEY || 'AIzaSyDOsKwwMcWjWIXsAgTlEPRAjyVYS550fNs';
+const GOOGLE_CSE_API_KEY = process.env.GOOGLE_CSE_API_KEY || 'AIzaSyDOsKwwMcWjWIXsAgTlEPRAjyVYS550fNs';
+const GOOGLE_CSE_ID = process.env.GOOGLE_CSE_ID || 'b382c0e302f1c4c32';
 
 const UA = 'PajeeseoBot/1.0 (+https://pajeeseo.online/)';
 
