@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pajeeseo.online — Real SEO Audit, PageSpeed & Keyword Research</title>
+  <meta name="description" content="Run real PageSpeed Insights, SERP checks, on-page SEO audit, technical audit and client-ready AI SEO summary with Pajeeseo.online." />
+  <meta name="theme-color" content="#eef7ff" />
+  <link rel="icon" type="image/svg+xml" href="assets/pajeeseo-favicon.svg" />
+  <meta property="og:title" content="Pajeeseo.online — Real SEO Audit Platform" />
+  <meta property="og:description" content="Real PageSpeed metrics, technical SEO checks, keyword SERP signals and action roadmap." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pajeeseo.online/" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Pajeeseo.online","url":"https://pajeeseo.online/","description":"Real PageSpeed Insights, on-page SEO audit, technical SEO audit and keyword SERP research platform."}
+  </script>
+  <style>
+    :root {
+      --ink: #0f172a;
+      --muted: #64748b;
+      --primary: #4f46e5;
+      --cyan: #06b6d4;
+      --teal: #14b8a6;
+      --green: #16a34a;
+      --amber: #d97706;
+      --red: #dc2626;
+      --line: rgba(148, 163, 184, .24);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(79,70,229,.16), transparent 30rem),
+        radial-gradient(circle at 92% 10%, rgba(6,182,212,.16), transparent 34rem),
+        linear-gradient(180deg, #fbfdff 0%, #eef7ff 42%, #ffffff 100%);
+      min-height: 100vh;
+    }
+    .soft-card { background: rgba(255,255,255,.86); backdrop-filter: blur(18px); border: 1px solid var(--line); box-shadow: 0 24px 70px rgba(15,23,42,.08); }
+    .mini-card { background: rgba(255,255,255,.78); border: 1px solid rgba(226,232,240,.88); box-shadow: 0 12px 35px rgba(15,23,42,.055); }
+    .gradient-text { background: linear-gradient(135deg, #4338ca 0%, #0891b2 52%, #0f766e 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .btn-primary { background: linear-gradient(135deg, #4f46e5, #0891b2); color: white; box-shadow: 0 16px 38px rgba(79,70,229,.23); }
+    .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.04); }
+    .btn-dark { background: #0f172a; color: white; }
+    .btn-dark:hover { background: #1e293b; }
+    .tab-active { border-color: rgba(79,70,229,.55)!important; background: linear-gradient(135deg, rgba(79,70,229,.10), rgba(6,182,212,.10))!important; color: #312e81!important; }
+    .hide { display: none !important; }
+    .loader { width: 18px; height: 18px; border: 2px solid rgba(255,255,255,.5); border-top-color: white; border-radius: 50%; animation: spin .85s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .score-ring { width: 92px; height: 92px; flex: 0 0 92px; border-radius: 999px; background: conic-gradient(var(--ring-color) calc(var(--score) * 1%), #e5e7eb 0); display: grid; place-items: center; position: relative; }
+    .score-ring::after { content: ''; position: absolute; inset: 9px; border-radius: 999px; background: white; }
+    .score-ring strong { position: relative; z-index: 2; font-size: 1.35rem; font-weight: 900; }
+    .status-pass { background: #ecfdf5; color: #047857; border-color: #bbf7d0; }
+    .status-warn { background: #fffbeb; color: #b45309; border-color: #fde68a; }
+    .status-fail { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+    .source-live { background: #ecfdf5; color: #047857; }
+    .source-setup { background: #fff7ed; color: #c2410c; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .logo-mark { width: 54px; height: 54px; }
+    @media (max-width: 640px) { .score-ring { width: 76px; height: 76px; flex-basis: 76px; } }
+  </style>
+</head>
+<body>
+  <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/60 bg-white/80 backdrop-blur-xl">
+    <div class="mx-auto max-w-7xl px-5 py-3 flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-3 min-w-0" aria-label="Pajeeseo.online home">
+        <img class="logo-mark" src="assets/pajeeseo-logo.svg" alt="PajeeSEO.online logo" />
+        <div class="leading-tight">
+          <div class="text-xl md:text-2xl font-black tracking-tight">Pajee<span class="gradient-text">SEO</span><span class="text-cyan-600">.online</span></div>
+          <div class="text-[10px] md:text-xs font-bold uppercase tracking-[.16em] text-slate-400">Real SEO Audit Platform</div>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-7 text-sm font-bold text-slate-600">
+        <a href="#suite" class="hover:text-indigo-600">Audit Tool</a>
+        <a href="#features" class="hover:text-indigo-600">Services</a>
+        <a href="#setup" class="hover:text-indigo-600">API Setup</a>
+      </div>
+      <a id="nav-whatsapp" href="https://wa.me/923001234567?text=Hi%20Pajeeseo.online,%20I%20need%20SEO%20audit%20help" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 font-extrabold text-white shadow-lg shadow-emerald-500/20 hover:bg-emerald-500"><i class="fab fa-whatsapp text-lg"></i> WhatsApp</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="pt-32 pb-14 px-5">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.08fr_.92fr] gap-10 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-2 text-xs font-black uppercase tracking-[.18em] text-indigo-700"><i class="fa-solid fa-satellite-dish"></i> Real API SEO Dashboard</span>
+          <h1 class="mt-6 text-4xl md:text-6xl font-black leading-[1.05] tracking-tight">Check real SEO health with <span class="gradient-text">PageSpeed, SERP & Technical Audit</span></h1>
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">No fake random numbers. Pajeeseo.online reads actual Google PageSpeed metrics, live SERP signals through Google Custom Search, and server-side on-page/technical checks through <span class="mono">/api/proxy</span>.</p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#suite" class="btn-primary rounded-2xl px-7 py-4 font-black inline-flex items-center justify-center gap-2 transition"><i class="fa-solid fa-magnifying-glass-chart"></i> Start Real Audit</a>
+            <a href="#setup" class="rounded-2xl border border-slate-200 bg-white px-7 py-4 font-black text-slate-700 inline-flex items-center justify-center gap-2 hover:border-indigo-200"><i class="fa-solid fa-plug-circle-bolt"></i> API Setup</a>
+          </div>
+          <div class="mt-7 grid sm:grid-cols-3 gap-3 text-sm">
+            <div class="mini-card rounded-2xl p-4"><strong>PageSpeed</strong><p class="text-slate-500 mt-1">Mobile + Desktop live metrics.</p></div>
+            <div class="mini-card rounded-2xl p-4"><strong>Website Audit</strong><p class="text-slate-500 mt-1">Title, H1, canonical, schema, robots.</p></div>
+            <div class="mini-card rounded-2xl p-4"><strong>Keyword Signals</strong><p class="text-slate-500 mt-1">SERP count, rank position, suggestions.</p></div>
+          </div>
+        </div>
+        <div class="soft-card rounded-[2rem] p-6 md:p-8">
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-black">Live Audit Console</h2>
+              <p class="text-slate-500 mt-1">Enter a domain and keyword to generate report.</p>
+            </div>
+            <span id="api-health-pill" class="source-setup rounded-full px-3 py-1 text-xs font-black">Checking setup...</span>
+          </div>
+          <div class="mt-6 space-y-4">
+            <div>
+              <label for="url-input-hero" class="text-xs font-black uppercase tracking-[.16em] text-slate-500">Website URL</label>
+              <input id="url-input-hero" type="text" placeholder="https://example.com" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-5 py-4 outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100" />
+            </div>
+            <div>
+              <label for="keyword-input-hero" class="text-xs font-black uppercase tracking-[.16em] text-slate-500">Target Keyword</label>
+              <input id="keyword-input-hero" type="text" placeholder="SEO services in Islamabad" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-5 py-4 outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100" />
+            </div>
+            <button type="button" onclick="copyHeroInputsAndRun()" class="btn-dark w-full rounded-2xl px-6 py-4 font-black transition inline-flex items-center justify-center gap-2"><i class="fa-solid fa-play"></i> Run Full Report</button>
+          </div>
+          <div class="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-600 border border-slate-100"><strong class="text-slate-900">Note:</strong> Keyword volume/CPC are not available from Google Custom Search. For true volume/CPC, connect DataForSEO, Semrush, Ahrefs, or Google Ads API in backend.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="suite" class="px-5 py-12 max-w-7xl mx-auto scroll-mt-28">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <span class="text-indigo-600 font-black uppercase tracking-[.18em] text-xs">Audit Suite</span>
+        <h2 class="mt-3 text-3xl md:text-4xl font-black">Real Stats SEO Workflow</h2>
+        <p class="mt-3 text-slate-600">Step-by-step workflow with live data status. No random score generation.</p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-3 mb-6">
+        <button id="step-tab-1" onclick="goToStep(1)" class="tab-active text-left mini-card rounded-2xl p-4 border font-black transition"><span class="text-indigo-600">01</span><br>Inputs</button>
+        <button id="step-tab-2" onclick="goToStep(2)" class="text-left mini-card rounded-2xl p-4 border font-black text-slate-500 transition"><span class="text-cyan-600">02</span><br>PageSpeed</button>
+        <button id="step-tab-3" onclick="goToStep(3)" class="text-left mini-card rounded-2xl p-4 border font-black text-slate-500 transition"><span class="text-teal-600">03</span><br>Audit + Keywords</button>
+        <button id="step-tab-4" onclick="goToStep(4)" class="text-left mini-card rounded-2xl p-4 border font-black text-slate-500 transition"><span class="text-amber-600">04</span><br>AI Summary</button>
+      </div>
+
+      <div class="soft-card rounded-[2rem] p-5 md:p-8 min-h-[520px]">
+        <section id="panel-1" class="panel space-y-6">
+          <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-8 items-start">
+            <div>
+              <h3 class="text-2xl md:text-3xl font-black">Enter website and keyword</h3>
+              <p class="mt-2 text-slate-600">Ye input PageSpeed, website audit, SERP tracking, keyword suggestions aur final summary me use hoga.</p>
+              <div class="mt-6 grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="text-xs font-black uppercase tracking-[.16em] text-slate-500">Website URL</label>
+                  <input id="url-input" type="text" placeholder="https://pajeeseo.online" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-5 py-4 outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100" />
+                </div>
+                <div>
+                  <label class="text-xs font-black uppercase tracking-[.16em] text-slate-500">Seed Keyword</label>
+                  <input id="keyword-input" type="text" placeholder="SEO services in Islamabad" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-5 py-4 outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100" />
+                </div>
+                <div>
+                  <label class="text-xs font-black uppercase tracking-[.16em] text-slate-500">Country</label>
+                  <select id="country-input" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-5 py-4 outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100">
+                    <option value="PK">Pakistan</option><option value="AE">UAE</option><option value="US">USA</option><option value="GB">UK</option><option value="NO">Norway</option><option value="IN">India</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="text-xs font-black uppercase tracking-[.16em] text-slate-500">Language</label>
+                  <select id="lang-input" class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-5 py-4 outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100">
+                    <option value="en">English</option><option value="ur">Urdu</option><option value="no">Norwegian</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <button type="button" onclick="runFullReport()" class="btn-primary rounded-2xl px-7 py-4 font-black inline-flex items-center justify-center gap-2 transition"><span id="btn-text-full">Run Full Report</span><span id="loader-full" class="loader hide"></span></button>
+                <button type="button" onclick="runPageSpeedOnly()" class="rounded-2xl border border-slate-200 bg-white px-7 py-4 font-black text-slate-700 hover:border-indigo-200">Only PageSpeed</button>
+              </div>
+            </div>
+            <div class="rounded-3xl bg-white border border-slate-100 p-6">
+              <h4 class="font-black flex items-center gap-2"><i class="fa-solid fa-circle-info text-indigo-600"></i> Data source rules</h4>
+              <ul class="mt-4 space-y-3 text-sm text-slate-600">
+                <li><strong class="text-slate-900">PageSpeed:</strong> Google PageSpeed Insights API.</li>
+                <li><strong class="text-slate-900">On-page audit:</strong> <span class="mono">/api/proxy</span> fetches HTML server-side.</li>
+                <li><strong class="text-slate-900">SERP:</strong> Google Custom Search API via backend.</li>
+                <li><strong class="text-slate-900">Volume/CPC:</strong> requires paid keyword API; dashboard will not invent numbers.</li>
+              </ul>
+              <div id="setup-status" class="mt-5 rounded-2xl bg-slate-50 p-4 text-sm text-slate-600 border border-slate-100">Setup check will appear here.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="panel-2" class="panel hide space-y-6">
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+            <div>
+              <h3 class="text-2xl md:text-3xl font-black">Google PageSpeed Insights</h3>
+              <p class="mt-2 text-slate-600">Mobile aur desktop ke actual Lighthouse categories aur Core Web Vitals.</p>
+            </div>
+            <button type="button" onclick="runPageSpeedOnly()" class="btn-primary rounded-2xl px-6 py-3 font-black inline-flex items-center gap-2 transition"><span id="btn-text-ps">Refresh PageSpeed</span><span id="loader-ps" class="loader hide"></span></button>
+          </div>
+          <div id="pagespeed-status" class="rounded-2xl border border-slate-100 bg-slate-50 p-4 text-sm text-slate-600">Run report to see PageSpeed data.</div>
+          <div id="score-cards" class="grid md:grid-cols-2 xl:grid-cols-4 gap-4"></div>
+          <div class="grid lg:grid-cols-2 gap-4">
+            <div class="mini-card rounded-3xl p-5"><h4 class="font-black flex items-center gap-2"><i class="fa-solid fa-mobile-screen text-indigo-600"></i> Mobile Metrics</h4><div id="mobile-vitals" class="mt-4 space-y-3 text-sm"></div></div>
+            <div class="mini-card rounded-3xl p-5"><h4 class="font-black flex items-center gap-2"><i class="fa-solid fa-desktop text-cyan-600"></i> Desktop Metrics</h4><div id="desktop-vitals" class="mt-4 space-y-3 text-sm"></div></div>
+          </div>
+          <div class="flex justify-between gap-3"><button onclick="goToStep(1)" class="rounded-2xl bg-white border border-slate-200 px-5 py-3 font-bold text-slate-600"><i class="fa-solid fa-arrow-left mr-2"></i>Back</button><button onclick="goToStep(3)" class="btn-dark rounded-2xl px-6 py-3 font-black transition">Next: Audit + Keywords <i class="fa-solid fa-arrow-right ml-2"></i></button></div>
+        </section>
+
+        <section id="panel-3" class="panel hide space-y-6">
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+            <div>
+              <h3 class="text-2xl md:text-3xl font-black">Website Audit + Keyword SERP</h3>
+              <p class="mt-2 text-slate-600">On-page, technical checks, keyword suggestions, SERP result count and domain position.</p>
+            </div>
+            <button type="button" onclick="runAuditKeywordOnly()" class="btn-primary rounded-2xl px-6 py-3 font-black inline-flex items-center gap-2 transition"><span id="btn-text-ak">Refresh Audit</span><span id="loader-ak" class="loader hide"></span></button>
+          </div>
+          <div class="grid xl:grid-cols-2 gap-5">
+            <div class="mini-card rounded-3xl p-5">
+              <div class="flex items-center justify-between gap-3"><h4 class="font-black">On-page Checks</h4><span id="audit-source" class="source-setup rounded-full px-3 py-1 text-xs font-black">Not run</span></div>
+              <div id="onpage-checks" class="mt-4 space-y-3 text-sm"></div>
+            </div>
+            <div class="mini-card rounded-3xl p-5">
+              <h4 class="font-black">Technical Checks</h4>
+              <div id="technical-checks" class="mt-4 space-y-3 text-sm"></div>
+            </div>
+          </div>
+          <div class="mini-card rounded-3xl p-5">
+            <div class="flex items-center justify-between gap-3"><h4 class="font-black">Keyword Research Signals</h4><span id="keyword-source" class="source-setup rounded-full px-3 py-1 text-xs font-black">Not run</span></div>
+            <div id="keyword-summary" class="mt-4 grid md:grid-cols-3 gap-3"></div>
+            <div class="mt-5 overflow-x-auto">
+              <table class="w-full text-sm text-left">
+                <thead class="bg-slate-50 text-slate-500 uppercase text-xs"><tr><th class="p-4">Keyword / Query</th><th class="p-4">Intent</th><th class="p-4">Live Signal</th><th class="p-4">Source</th></tr></thead>
+                <tbody id="keyword-rows"></tbody>
+              </table>
+            </div>
+            <div class="mt-5"><h5 class="font-black mb-3">Live SERP Preview</h5><div id="serp-results" class="space-y-3"></div></div>
+          </div>
+          <div class="flex justify-between gap-3"><button onclick="goToStep(2)" class="rounded-2xl bg-white border border-slate-200 px-5 py-3 font-bold text-slate-600"><i class="fa-solid fa-arrow-left mr-2"></i>Back</button><button onclick="buildSummary(); goToStep(4)" class="btn-dark rounded-2xl px-6 py-3 font-black transition">Generate AI Summary <i class="fa-solid fa-wand-magic-sparkles ml-2"></i></button></div>
+        </section>
+
+        <section id="panel-4" class="panel hide space-y-6">
+          <div class="text-center max-w-3xl mx-auto">
+            <div class="mx-auto mb-4 grid h-16 w-16 place-items-center rounded-3xl bg-indigo-50 text-3xl text-indigo-600"><i class="fa-solid fa-award"></i></div>
+            <h3 class="text-2xl md:text-3xl font-black">Client-Ready AI SEO Summary</h3>
+            <p class="mt-2 text-slate-600">Summary actual data se generate hoti hai. Jahan data connected nahi, clearly setup required show hota hai.</p>
+          </div>
+          <div id="summary-cards" class="grid lg:grid-cols-2 gap-4"></div>
+          <div class="rounded-[1.5rem] bg-gradient-to-r from-indigo-600 via-cyan-600 to-teal-600 p-6 text-white flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+            <div><h4 class="text-xl font-black">Send this report to Pajeeseo.online</h4><p class="mt-1 text-white/80 text-sm">WhatsApp message me domain, scores, issues, keyword signals aur priority plan auto-fill hoga.</p></div>
+            <a id="whatsapp-share-btn" href="#" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-7 py-4 font-black text-slate-900 shadow-xl"><i class="fab fa-whatsapp text-emerald-600 text-xl"></i> Send Report</a>
+          </div>
+          <div class="flex justify-start"><button onclick="goToStep(3)" class="rounded-2xl bg-white border border-slate-200 px-5 py-3 font-bold text-slate-600"><i class="fa-solid fa-arrow-left mr-2"></i>Back</button></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="features" class="px-5 py-14 max-w-7xl mx-auto scroll-mt-28">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-indigo-600 font-black uppercase tracking-[.18em] text-xs">Services</span>
+        <h2 class="mt-3 text-3xl md:text-4xl font-black">What Pajeeseo.online Can Execute</h2>
+        <p class="mt-3 text-slate-600">Report ke baad client ko exact SEO services samajh aati hain.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <article class="mini-card rounded-3xl p-6"><i class="fa-solid fa-code text-indigo-600 text-2xl"></i><h3 class="mt-4 font-black">On-page SEO</h3><p class="mt-2 text-sm text-slate-600">Title, meta, H1, internal links, schema and semantic content mapping.</p></article>
+        <article class="mini-card rounded-3xl p-6"><i class="fa-solid fa-gauge-high text-cyan-600 text-2xl"></i><h3 class="mt-4 font-black">PageSpeed Fixes</h3><p class="mt-2 text-sm text-slate-600">Image compression, JS/CSS cleanup, lazy loading and Core Web Vitals fixes.</p></article>
+        <article class="mini-card rounded-3xl p-6"><i class="fa-solid fa-sitemap text-teal-600 text-2xl"></i><h3 class="mt-4 font-black">Technical SEO</h3><p class="mt-2 text-sm text-slate-600">Canonical, robots, sitemap, redirects, crawlability and indexing checks.</p></article>
+        <article class="mini-card rounded-3xl p-6"><i class="fa-solid fa-magnifying-glass-chart text-amber-600 text-2xl"></i><h3 class="mt-4 font-black">Keyword Strategy</h3><p class="mt-2 text-sm text-slate-600">Commercial, local and informational intent planning based on live SERP signals.</p></article>
+      </div>
+    </section>
+
+    <section id="setup" class="px-5 py-14 max-w-7xl mx-auto scroll-mt-28">
+      <div class="soft-card rounded-[2rem] p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-black">API Setup Required for Proper Real Stats</h2>
+        <p class="mt-3 text-slate-600">Upload <span class="mono">index.html</span>, <span class="mono">/api/proxy</span>, <span class="mono">pajeeseo-logo.svg</span> and <span class="mono">pajeeseo-favicon.svg</span> in the same folder. Then add your keys inside <span class="mono">/api/proxy</span>.</p>
+        <div class="mt-5 grid md:grid-cols-3 gap-4 text-sm">
+          <div class="rounded-2xl bg-white border border-slate-100 p-4"><strong>PageSpeed API</strong><p class="mt-1 text-slate-600">Can run without key with limited quota, but key is better.</p></div>
+          <div class="rounded-2xl bg-white border border-slate-100 p-4"><strong>Google CSE</strong><p class="mt-1 text-slate-600">Required for live SERP preview, result count and domain position.</p></div>
+          <div class="rounded-2xl bg-white border border-slate-100 p-4"><strong>Keyword Volume/CPC</strong><p class="mt-1 text-slate-600">Use DataForSEO/Semrush/Google Ads API. Dashboard will not fake this.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white/80 py-8 text-center text-sm text-slate-500">© 2026 Pajeeseo.online. Real SEO Audit, Keyword Research & Technical Optimization Platform.</footer>
+
+  <script>
+    const CONFIG = {
+      apiBase: '/api/proxy', // backend proxy included in this folder
+      whatsappNumber: '923001234567'
+    };
+    const state = {
+      targetUrl: '', domain: '', keyword: '', country: 'PK', lang: 'en',
+      pageSpeed: { mobile: null, desktop: null, errors: [] },
+      audit: null, suggestions: [], serp: null, keywordMetrics: null
+    };
+    const $ = id => document.getElementById(id);
+    function escapeHtml(value = '') { return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c])); }
+    function normalizeUrl(value) { const v = String(value || '').trim(); if (!v) return ''; return /^https?:\/\//i.test(v) ? v : 'https://' + v; }
+    function getDomain(url) { try { return new URL(url).hostname.replace(/^www\./i, ''); } catch(e) { return ''; } }
+    function setLoading(id, on, text) { const btn = $('btn-text-' + id), loader = $('loader-' + id); if (loader) loader.classList.toggle('hide', !on); if (btn && text) btn.textContent = text; }
+    function statusPill(status, label) { const cls = status === 'pass' ? 'status-pass' : status === 'fail' ? 'status-fail' : 'status-warn'; return `<span class="rounded-full border px-3 py-1 text-xs font-black ${cls}">${label}</span>`; }
+    function sourcePill(live, text) { return `<span class="rounded-full px-3 py-1 text-xs font-black ${live ? 'source-live' : 'source-setup'}">${text}</span>`; }
+    function scoreColor(score) { if (score >= 90) return '#16a34a'; if (score >= 50) return '#d97706'; return '#dc2626'; }
+    function goToStep(n) { document.querySelectorAll('.panel').forEach(p => p.classList.add('hide')); document.querySelectorAll('[id^="step-tab-"]').forEach(t => { t.classList.remove('tab-active'); t.classList.add('text-slate-500'); }); $('panel-' + n).classList.remove('hide'); $('step-tab-' + n).classList.add('tab-active'); $('step-tab-' + n).classList.remove('text-slate-500'); document.querySelector('#suite').scrollIntoView({behavior:'smooth', block:'start'}); }
+    async function api(action, params = {}) {
+      const q = new URLSearchParams({ action, ...params });
+      const res = await fetch(`${CONFIG.apiBase}?${q.toString()}`, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`${action} API failed`);
+      const data = await res.json();
+      if (data && data.ok === false) throw new Error(data.message || `${action} unavailable`);
+      return data;
+    }
+    async function directPageSpeed(strategy) {
+      const q = new URLSearchParams({ url: state.targetUrl, strategy, category: 'performance' });
+      ['seo', 'accessibility', 'best-practices'].forEach(c => q.append('category', c));
+      const res = await fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?${q.toString()}`);
+      if (!res.ok) throw new Error(`Direct PageSpeed ${strategy} failed`);
+      return res.json();
+    }
+    async function checkSetup() {
+      try {
+        const data = await api('health');
+        const cse = data.google_cse_configured ? 'CSE connected' : 'CSE needs keys';
+        $('api-health-pill').className = data.backend ? 'source-live rounded-full px-3 py-1 text-xs font-black' : 'source-setup rounded-full px-3 py-1 text-xs font-black';
+        $('api-health-pill').textContent = data.backend ? 'Backend connected' : 'Backend missing';
+        $('setup-status').innerHTML = `${sourcePill(data.backend, data.backend ? '/api/proxy connected' : '/api/proxy missing')} ${sourcePill(data.google_cse_configured, cse)} ${sourcePill(data.pagespeed_key_configured, data.pagespeed_key_configured ? 'PageSpeed key set' : 'PageSpeed limited quota')}`;
+      } catch(e) {
+        $('api-health-pill').textContent = 'Static mode';
+        $('setup-status').innerHTML = `${sourcePill(false, '/api/proxy not connected')} <span class="text-slate-500">PageSpeed can still try direct mode, but on-page audit and SERP need /api/proxy.</span>`;
+      }
+    }
+    function syncStateFromInputs() {
+      const targetUrl = normalizeUrl($('url-input').value || $('url-input-hero').value);
+      const keyword = ($('keyword-input').value || $('keyword-input-hero').value || '').trim();
+      if (!targetUrl) throw new Error('Please enter a website URL.');
+      state.targetUrl = targetUrl; state.domain = getDomain(targetUrl);
+      state.keyword = keyword; state.country = $('country-input').value; state.lang = $('lang-input').value;
+      $('url-input').value = targetUrl; $('url-input-hero').value = targetUrl;
+      $('keyword-input').value = keyword; $('keyword-input-hero').value = keyword;
+    }
+    function copyHeroInputsAndRun() { $('url-input').value = $('url-input-hero').value; $('keyword-input').value = $('keyword-input-hero').value; runFullReport(); }
+    async function runFullReport() {
+      try { syncStateFromInputs(); } catch(e) { return alert(e.message); }
+      setLoading('full', true, 'Running real report...');
+      await runPageSpeedOnly(true);
+      await runAuditKeywordOnly(true);
+      buildSummary();
+      goToStep(4);
+      setLoading('full', false, 'Run Full Report');
+    }
+    async function runPageSpeedOnly(silent = false) {
+      try { syncStateFromInputs(); } catch(e) { return alert(e.message); }
+      setLoading('ps', true, 'Checking...');
+      $('pagespeed-status').innerHTML = 'Fetching live Google PageSpeed data...';
+      state.pageSpeed = { mobile: null, desktop: null, errors: [] };
+      const fetchOne = async strategy => {
+        try { const r = await api('pagespeed', { url: state.targetUrl, strategy }); return r.data || r; }
+        catch(e) { return directPageSpeed(strategy); }
+      };
+      const [mobile, desktop] = await Promise.allSettled([fetchOne('mobile'), fetchOne('desktop')]);
+      if (mobile.status === 'fulfilled') state.pageSpeed.mobile = mobile.value; else state.pageSpeed.errors.push('Mobile: ' + mobile.reason.message);
+      if (desktop.status === 'fulfilled') state.pageSpeed.desktop = desktop.value; else state.pageSpeed.errors.push('Desktop: ' + desktop.reason.message);
+      renderPageSpeed();
+      setLoading('ps', false, 'Refresh PageSpeed');
+      if (!silent) goToStep(2);
+    }
+    function psiScore(data, cat) { return Math.round(((data?.lighthouseResult?.categories?.[cat]?.score) ?? 0) * 100); }
+    function psiAudit(data, key) { return data?.lighthouseResult?.audits?.[key] || null; }
+    function psiDisplay(data, key) { return psiAudit(data, key)?.displayValue || 'N/A'; }
+    function scoreCard(title, score, icon) {
+      return `<div class="mini-card rounded-3xl p-5 flex items-center gap-4"><div class="score-ring" style="--score:${score};--ring-color:${scoreColor(score)}"><strong>${Number.isFinite(score)?score:'--'}</strong></div><div><div class="text-2xl text-indigo-600"><i class="${icon}"></i></div><h4 class="font-black mt-1">${title}</h4><p class="text-xs text-slate-500 mt-1">Score out of 100</p></div></div>`;
+    }
+    function metricRow(label, value, tip = '') { return `<div class="rounded-2xl border border-slate-100 bg-white px-4 py-3 flex items-center justify-between gap-3"><span class="font-bold text-slate-600">${label}</span><span class="font-black text-slate-900 text-right">${value || 'N/A'}</span></div>${tip ? `<p class="text-xs text-slate-500 px-1">${tip}</p>` : ''}`; }
+    function renderVitals(containerId, data) {
+      if (!data) { $(containerId).innerHTML = '<div class="rounded-2xl bg-red-50 border border-red-100 p-4 text-red-700 font-bold">No data returned.</div>'; return; }
+      $(containerId).innerHTML = [
+        metricRow('First Contentful Paint', psiDisplay(data, 'first-contentful-paint')),
+        metricRow('Largest Contentful Paint', psiDisplay(data, 'largest-contentful-paint')),
+        metricRow('Total Blocking Time', psiDisplay(data, 'total-blocking-time')),
+        metricRow('Cumulative Layout Shift', psiDisplay(data, 'cumulative-layout-shift')),
+        metricRow('Speed Index', psiDisplay(data, 'speed-index'))
+      ].join('');
+    }
+    function renderPageSpeed() {
+      const m = state.pageSpeed.mobile, d = state.pageSpeed.desktop;
+      const base = d || m;
+      if (!base) {
+        $('pagespeed-status').innerHTML = `<div class="text-red-700 font-bold">PageSpeed did not return data. ${escapeHtml(state.pageSpeed.errors.join(' | '))}</div>`;
+        $('score-cards').innerHTML = ''; $('mobile-vitals').innerHTML = ''; $('desktop-vitals').innerHTML = ''; return;
+      }
+      const perf = psiScore(m || d, 'performance'); const seo = psiScore(base, 'seo'); const acc = psiScore(base, 'accessibility'); const bp = psiScore(base, 'best-practices');
+      $('pagespeed-status').innerHTML = `${sourcePill(true, 'Live Google PageSpeed data')} <span class="ml-2 text-slate-600">URL tested: <strong>${escapeHtml(state.targetUrl)}</strong></span>` + (state.pageSpeed.errors.length ? `<div class="mt-2 text-amber-700 font-bold">${escapeHtml(state.pageSpeed.errors.join(' | '))}</div>` : '');
+      $('score-cards').innerHTML = scoreCard('Mobile Performance', perf, 'fa-solid fa-mobile-screen') + scoreCard('SEO Score', seo, 'fa-solid fa-magnifying-glass-chart') + scoreCard('Accessibility', acc, 'fa-solid fa-universal-access') + scoreCard('Best Practices', bp, 'fa-solid fa-shield-halved');
+      renderVitals('mobile-vitals', m); renderVitals('desktop-vitals', d);
+    }
+    async function runAuditKeywordOnly(silent = false) {
+      try { syncStateFromInputs(); } catch(e) { return alert(e.message); }
+      setLoading('ak', true, 'Checking...');
+      await Promise.allSettled([runServerAudit(), runKeywordSignals()]);
+      setLoading('ak', false, 'Refresh Audit');
+      if (!silent) goToStep(3);
+    }
+    async function runServerAudit() {
+      $('audit-source').className = 'source-setup rounded-full px-3 py-1 text-xs font-black'; $('audit-source').textContent = 'Checking...';
+      try {
+        const data = await api('audit', { url: state.targetUrl });
+        state.audit = data;
+        $('audit-source').className = 'source-live rounded-full px-3 py-1 text-xs font-black'; $('audit-source').textContent = 'Live backend audit';
+        renderAudit();
+      } catch(e) {
+        state.audit = null;
+        $('audit-source').className = 'source-setup rounded-full px-3 py-1 text-xs font-black'; $('audit-source').textContent = '/api/proxy required';
+        $('onpage-checks').innerHTML = `<div class="rounded-2xl bg-amber-50 border border-amber-100 p-4 text-amber-800"><strong>On-page audit needs /api/proxy.</strong><br>Upload the provided /api/proxy in same folder. Browser cannot directly read external HTML due to CORS.</div>`;
+        $('technical-checks').innerHTML = `<div class="rounded-2xl bg-amber-50 border border-amber-100 p-4 text-amber-800">Technical crawl checks will run after backend is connected.</div>`;
+      }
+    }
+    function renderCheck(item) {
+      return `<div class="rounded-2xl border border-slate-100 bg-white p-4 flex items-start justify-between gap-4"><div><h5 class="font-black">${escapeHtml(item.name)}</h5><p class="mt-1 text-slate-600">${escapeHtml(item.detail || '')}</p>${item.value ? `<p class="mt-2 text-xs font-bold text-slate-500 mono">${escapeHtml(item.value)}</p>` : ''}</div>${statusPill(item.status, item.status === 'pass' ? 'Pass' : item.status === 'fail' ? 'Fix' : 'Check')}</div>`;
+    }
+    function renderAudit() {
+      const on = state.audit?.onpage || [], tech = state.audit?.technical || [];
+      $('onpage-checks').innerHTML = on.length ? on.map(renderCheck).join('') : '<div class="text-slate-500">No on-page checks returned.</div>';
+      $('technical-checks').innerHTML = tech.length ? tech.map(renderCheck).join('') : '<div class="text-slate-500">No technical checks returned.</div>';
+    }
+    async function runKeywordSignals() {
+      $('keyword-source').className = 'source-setup rounded-full px-3 py-1 text-xs font-black'; $('keyword-source').textContent = 'Checking...';
+      const keyword = state.keyword;
+      if (!keyword) {
+        $('keyword-source').textContent = 'Keyword missing'; $('keyword-summary').innerHTML = ''; $('keyword-rows').innerHTML = '<tr><td class="p-4 text-slate-500" colspan="4">Enter keyword to run research.</td></tr>'; $('serp-results').innerHTML = ''; return;
+      }
+      const [suggest, serp] = await Promise.allSettled([
+        api('suggest', { keyword, country: state.country, lang: state.lang }),
+        api('serp', { keyword, url: state.targetUrl, country: state.country, lang: state.lang })
+      ]);
+      state.suggestions = suggest.status === 'fulfilled' ? (suggest.value.suggestions || []) : makeLocalIdeas(keyword);
+      state.serp = serp.status === 'fulfilled' ? serp.value : null;
+      $('keyword-source').className = state.serp ? 'source-live rounded-full px-3 py-1 text-xs font-black' : 'source-setup rounded-full px-3 py-1 text-xs font-black';
+      $('keyword-source').textContent = state.serp ? 'Live SERP connected' : 'CSE setup required';
+      renderKeywordSignals();
+    }
+    function makeLocalIdeas(seed) {
+      const s = seed.trim();
+      return [`best ${s}`, `${s} near me`, `${s} price`, `${s} agency`, `${s} services`, `affordable ${s}`, `${s} for small business`, `${s} in Pakistan`];
+    }
+    function intentOf(k) { const v = k.toLowerCase(); if (/price|cost|agency|services|buy|hire|near me|best/.test(v)) return 'Commercial'; if (/how|what|guide|tips|learn/.test(v)) return 'Informational'; if (/islamabad|lahore|karachi|pakistan|near me/.test(v)) return 'Local'; return 'Research'; }
+    function renderKeywordSignals() {
+      const total = state.serp?.search_information?.total_results || state.serp?.searchInformation?.totalResults || null;
+      const position = state.serp?.domain_position || null;
+      $('keyword-summary').innerHTML = [
+        `<div class="rounded-2xl bg-white border border-slate-100 p-4"><p class="text-xs font-black uppercase text-slate-400">SERP Result Count</p><h5 class="mt-1 text-2xl font-black">${total ? Number(total).toLocaleString() : 'Setup'}</h5><p class="text-xs text-slate-500 mt-1">Google CSE total results</p></div>`,
+        `<div class="rounded-2xl bg-white border border-slate-100 p-4"><p class="text-xs font-black uppercase text-slate-400">Domain Position</p><h5 class="mt-1 text-2xl font-black">${position ? '#' + position : 'Not in top results'}</h5><p class="text-xs text-slate-500 mt-1">Top results check</p></div>`,
+        `<div class="rounded-2xl bg-white border border-slate-100 p-4"><p class="text-xs font-black uppercase text-slate-400">Keyword Ideas</p><h5 class="mt-1 text-2xl font-black">${state.suggestions.length}</h5><p class="text-xs text-slate-500 mt-1">Suggest/local ideas</p></div>`
+      ].join('');
+      const rows = [state.keyword, ...state.suggestions.slice(0, 10)].filter(Boolean);
+      $('keyword-rows').innerHTML = rows.map((kw, i) => `<tr class="border-t border-slate-100"><td class="p-4 font-black text-slate-900">${escapeHtml(kw)}</td><td class="p-4">${intentOf(kw)}</td><td class="p-4">${i === 0 && total ? `${Number(total).toLocaleString()} indexed results` : 'Suggestion only — no fake volume'}</td><td class="p-4">${i === 0 && state.serp ? 'Google CSE live' : (state.serp ? 'Google Suggest/local idea' : 'Local idea')}</td></tr>`).join('');
+      const items = state.serp?.items || [];
+      $('serp-results').innerHTML = items.length ? items.slice(0, 8).map((item, idx) => `<div class="rounded-2xl border border-slate-100 bg-white p-4"><div class="flex items-start gap-3"><span class="rounded-full bg-indigo-50 text-indigo-700 px-3 py-1 text-xs font-black">#${idx+1}</span><div><a class="font-black text-indigo-700 hover:underline" href="${escapeHtml(item.link)}" target="_blank" rel="noopener">${escapeHtml(item.title)}</a><p class="mt-1 text-xs text-slate-500 break-all">${escapeHtml(item.link)}</p><p class="mt-2 text-sm text-slate-600">${escapeHtml(item.snippet || '')}</p></div></div></div>`).join('') : `<div class="rounded-2xl bg-amber-50 border border-amber-100 p-4 text-amber-800"><strong>Live SERP not connected.</strong><br>Add Google Custom Search API key + Search Engine ID inside /api/proxy.</div>`;
+    }
+    function averageScore() {
+      const vals = [];
+      ['mobile','desktop'].forEach(s => ['performance','seo','accessibility','best-practices'].forEach(c => { const x = psiScore(state.pageSpeed[s], c); if (x > 0) vals.push(x); }));
+      return vals.length ? Math.round(vals.reduce((a,b)=>a+b,0)/vals.length) : null;
+    }
+    function buildSummary() {
+      const perf = psiScore(state.pageSpeed.mobile || state.pageSpeed.desktop, 'performance');
+      const seo = psiScore(state.pageSpeed.desktop || state.pageSpeed.mobile, 'seo');
+      const failChecks = [...(state.audit?.onpage || []), ...(state.audit?.technical || [])].filter(c => c.status === 'fail');
+      const warnChecks = [...(state.audit?.onpage || []), ...(state.audit?.technical || [])].filter(c => c.status === 'warn');
+      const priority = perf && perf < 50 ? 'Critical' : (failChecks.length >= 3 ? 'High' : (perf && perf < 75 ? 'Medium' : 'Focused'));
+      const topIssues = failChecks.concat(warnChecks).slice(0, 5).map(x => x.name);
+      const ideas = [state.keyword, ...state.suggestions].filter(Boolean).slice(0, 6);
+      const cards = [
+        {icon:'fa-gauge-high', title:'Performance Priority', body: perf ? `Mobile performance score ${perf}/100 hai. ${perf < 75 ? 'Images, unused JS/CSS, LCP asset aur render-blocking resources first priority par optimize karein.' : 'Performance healthy hai, lekin LCP/TBT/CLS detail ke mutabiq final cleanup karein.'}` : 'PageSpeed data connect/run karein taake performance priority clear ho.'},
+        {icon:'fa-list-check', title:'On-page + Technical Fixes', body: topIssues.length ? `Top fixes: ${topIssues.join(', ')}. In issues ko pehle resolve karna chahiye kyun ke ye crawl, indexation aur relevance directly affect karte hain.` : 'Audit checks abhi pass ya not connected hain. Backend connected ho to exact title/meta/H1/canonical/schema checks yahan appear honge.'},
+        {icon:'fa-magnifying-glass-chart', title:'Keyword Opportunity', body: ideas.length ? `Start keyword map: ${ideas.join(', ')}. Inko commercial, local aur informational sections/pages me divide karein.` : 'Keyword add karein taake suggestions aur SERP signals summary me include hon.'},
+        {icon:'fa-route', title:'Execution Roadmap', body: `Priority level: ${priority}. Sequence: 1) Technical/indexability fixes, 2) Core Web Vitals, 3) On-page semantic optimization, 4) Internal links + authority content, 5) SERP tracking.`}
+      ];
+      $('summary-cards').innerHTML = cards.map(c => `<div class="mini-card rounded-3xl p-6"><div class="text-2xl text-indigo-600"><i class="fa-solid ${c.icon}"></i></div><h4 class="mt-3 font-black text-xl">${escapeHtml(c.title)}</h4><p class="mt-2 text-slate-600 leading-relaxed">${escapeHtml(c.body)}</p></div>`).join('');
+      const total = state.serp?.search_information?.total_results || state.serp?.searchInformation?.totalResults || 'N/A';
+      const msg = `Assalam-o-Alaikum Pajeeseo.online!\n\nMaine SEO audit run kiya hai:\nDomain: ${state.targetUrl || 'N/A'}\nKeyword: ${state.keyword || 'N/A'}\nCountry: ${state.country}\nPerformance: ${perf || 'N/A'}/100\nSEO Score: ${seo || 'N/A'}/100\nSERP Results: ${total}\nDomain Position: ${state.serp?.domain_position ? '#' + state.serp.domain_position : 'Not found / not connected'}\nTop Issues: ${topIssues.length ? topIssues.join(', ') : 'N/A'}\n\nMujhe is ke liye complete SEO execution plan chahiye.`;
+      $('whatsapp-share-btn').href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+    }
+    document.addEventListener('DOMContentLoaded', () => { checkSetup(); });
+  </script>
+</body>
+</html>

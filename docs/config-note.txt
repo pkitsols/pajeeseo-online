@@ -1,0 +1,7 @@
+Copy these values into api.php:
+
+const PAGESPEED_API_KEY = '';
+const GOOGLE_CSE_API_KEY = '';
+const GOOGLE_CSE_ID = '';
+
+Do not put API keys inside index.html.
