@@ -1,0 +1,18 @@
+{
+  "name": "pajeeseo-online-vercel",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pajeeseo.online real SEO audit app for GitHub and Vercel deployment.",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod",
+    "check": "node --check api/seo.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "vercel": "latest"
+  }
+}

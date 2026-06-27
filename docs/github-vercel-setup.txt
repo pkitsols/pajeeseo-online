@@ -1,0 +1,18 @@
+Pajeeseo.online GitHub + Vercel Setup
+
+1) GitHub repo create karo.
+2) Is folder ki sari files repo root me upload karo.
+3) Vercel me Add New Project > GitHub repo import karo.
+4) Framework: Other.
+5) Environment Variables add karo:
+   PAGESPEED_API_KEY
+   GOOGLE_CSE_API_KEY
+   GOOGLE_CSE_ID
+6) Deploy karo.
+7) Test karo:
+   /api/seo?action=health
+
+Important:
+- api.php Vercel ke liye use nahi hota.
+- api/seo.js Vercel serverless backend hai.
+- Real keys GitHub me mat daalna.
